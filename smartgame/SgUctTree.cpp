@@ -13,7 +13,6 @@
 
 using namespace std;
 using boost::format;
-using boost::shared_ptr;
 
 //----------------------------------------------------------------------------
 
@@ -449,7 +448,7 @@ void SgUctTreeIterator::operator++()
     if (m_current->HasChildren())
     {
         SgUctChildIterator* it = new SgUctChildIterator(m_tree, *m_current);
-        m_stack.push(shared_ptr<SgUctChildIterator>(it));
+        m_stack.push(boost::shared_ptr<SgUctChildIterator>(it));
         m_current = &(**it);
         return;
     }

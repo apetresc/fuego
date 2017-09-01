@@ -73,6 +73,9 @@ then
 
 fi
 
+CXXFLAGS="$CXXFLAGS -lpthread"
+LDFLAGS="$LDFLAGS -lpthread"
+
 
 AX_CXXFLAGS_WARN_ALL
 AX_CXXFLAGS_GCC_OPTION(-Wextra)

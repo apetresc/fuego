@@ -47,7 +47,7 @@ public:
     //------------------------------------------------------------------------
 
     /** Priority of newly created leaves. */
-    static const float LEAF_PRIORITY = 0.0;
+    static const float LEAF_PRIORITY;
 
     //------------------------------------------------------------------------
 

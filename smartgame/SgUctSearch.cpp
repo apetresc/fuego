@@ -22,7 +22,6 @@ using boost::barrier;
 using boost::condition;
 using boost::format;
 using boost::mutex;
-using boost::shared_ptr;
 using boost::io::ios_all_saver;
 
 #define BOOST_VERSION_MAJOR (BOOST_VERSION / 100000)
@@ -359,7 +358,7 @@ void SgUctSearch::CreateThreads()
     {
         auto_ptr<SgUctThreadState> state(
                                       m_threadStateFactory->Create(i, *this));
-        shared_ptr<Thread> thread(new Thread(*this, state));
+        boost::shared_ptr<Thread> thread(new Thread(*this, state));
         m_threads.push_back(thread);
     }
     m_tree.CreateAllocators(m_numberThreads);

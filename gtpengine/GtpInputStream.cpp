@@ -29,7 +29,7 @@ bool GtpInputStream::EndOfInput()
 
 bool GtpInputStream::GetLine(string &line)
 {
-    return getline(m_in, line);
+    return bool(getline(m_in, line));
 }
 
 //----------------------------------------------------------------------------

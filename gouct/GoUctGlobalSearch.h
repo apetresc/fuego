@@ -6,6 +6,7 @@
 #ifndef GOUCT_GLOBALSEARCH_H
 #define GOUCT_GLOBALSEARCH_H
 
+#include <algorithm>
 #include <boost/scoped_ptr.hpp>
 #include "GoBoard.h"
 #include "GoBoardUtil.h"
@@ -328,7 +329,7 @@ float GoUctGlobalSearchState<POLICY>::EvaluateBoard(const BOARD& bd,
             }
     if (bd.ToPlay() != SG_BLACK)
         score *= -1;
-    float lengthMod = min(GameLength() * m_param.m_lengthModification, 0.5f);
+    float lengthMod = std::min(GameLength() * m_param.m_lengthModification, 0.5f);
     if (score > std::numeric_limits<float>::epsilon())
         return
             (1 - m_param.m_scoreModification)

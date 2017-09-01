@@ -22,7 +22,6 @@
 #include <boost/program_options/parsers.hpp>
 
 using namespace std;
-using boost::filesystem::path;
 namespace po = boost::program_options;
 
 //----------------------------------------------------------------------------
@@ -44,7 +43,7 @@ int g_maxGames;
 
 string g_config;
 
-path g_programDir;
+boost::filesystem::path g_programDir;
 
 const char* g_programPath;
 
@@ -56,11 +55,11 @@ int g_srand;
     @param programPath Program path taken from @c argv[0] in
     @c main. According to ANSI C, this can be @c 0.
  */
-path GetProgramDir(const char* programPath)
+boost::filesystem::path GetProgramDir(const char* programPath)
 {
     if (programPath == 0)
         return "";
-    return path(programPath, boost::filesystem::native).branch_path();
+    return boost::filesystem::path(programPath).branch_path();
 }
 
 void MainLoop()
